@@ -1,0 +1,126 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Group",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/MQTT/properties/HOST",
+              "label": "MQTT Broker IP"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/MQTT/properties/PORT",
+              "label": "Port",
+              "options": {
+                "multi": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/MQTT/properties/USERNAME",
+                  "label": "Username"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/MQTT/properties/PASSWORD",
+                  "label": "Password"
+                }
+              ]
+            }
+          ],
+          "label": "User"
+        }
+      ],
+      "label": "IE Databus"
+    },
+    {
+      "type": "Group",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/KAFKA/properties/HOST",
+              "label": "Host"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/KAFKA/properties/PORT",
+              "label": "Port"
+            }
+          ]
+        }
+      ],
+      "label": "Apache Kafka"
+    },
+    {
+      "type": "Group",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/PRODUCER_TOPICS",
+          "options": {
+            "detail": {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/MQTT",
+                  "label": "MQTT Topic"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/KAFKA",
+                  "label": "Kafka Topic"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/KEY",
+                  "label": "Kafka Key"
+                }
+              ]
+            }
+          },
+          "label": "Producer Topics"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/CONSUMER_TOPICS",
+          "options": {
+            "detail": {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "scope": "#/properties/KAFKA",
+                  "label": "Kafka Topic"
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/MQTT",
+                  "label": "MQTT Topic"
+                }
+              ]
+            }
+          },
+          "label": "Consumer Topics"
+        }
+      ],
+      "label": "Topics"
+    }
+  ]
+}
