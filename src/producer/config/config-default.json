@@ -1,0 +1,25 @@
+{
+  "MQTT": {
+    "HOST": "ie-databus",
+    "PORT": "1883",
+    "USERNAME": "edge",
+    "PASSWORD": "edge"
+  },
+  "KAFKA": {
+    "HOST": "192.168.253.143",
+    "PORT": "9092"
+  },
+  "CONSUMER_TOPICS": [
+    {
+      "MQTT": "ie/d/kafka",
+      "KAFKA": "EdgeDevice"
+    }
+  ],
+  "PRODUCER_TOPICS": [
+    {
+      "MQTT": "ie/d/j/simatic/v1/s7c1/dp/r/#",
+      "KAFKA": "EdgeDevice",
+      "KEY": "S7-Connector"
+    }
+  ]
+}
