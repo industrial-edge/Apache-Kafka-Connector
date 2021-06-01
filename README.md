@@ -1,15 +1,16 @@
 # Apache Kafka Connector
 
+Connect Industrial Edge Device to Apache Kafka 
 
 - [Apache Kafka Connector](#apache-kafka-connector)
   - [Description](#description)
     - [Overview](#overview)
     - [General task](#general-task)
   - [Requirements](#requirements)
+    - [Used Components](#used-components)
+    - [TIA Project](#tia-project)
     - [Prerequisites](#prerequisites)
-    - [Used components](#used-components)
   - [Installation](#installation)
-  - [Usage](#usage)
   - [Documentation](#documentation)
   - [Contribution](#contribution)
   - [Licence and Legal Information](#licence-and-legal-information)
@@ -18,46 +19,48 @@
 
 ### Overview
 
-Add a short overview of the How To
+The Apache Kafka Connector connects to the IE Databus and Apache Kafka. The Connector can subcribes to MQTT Topics on IE Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages on a Kafka Topic and publishes messages to MQTT Topics on IE Databus. 
 
 ### General task
 
-Add the goal/ task of this How To.
+This example shows how to connect your Industrial Edge Device to Apache Kafka. Therefore a SIMATIC PLC is used as datasource. The S7-Connector reads the data from the PLC and publish them on IE Databus. The Apache Kafka Connector consists of two services, the "kafka-producer" and "kafka-consumer". The "kafka-producer" subscribes to the IE Databus to get the data from S7-Connector and produces messages in a topic on the Apache Kafka Broker. The "kafka-consumer" subscribes to the same topic on the Apache Kafka Broker and publishes the data an other topic on IE Databus. The IE Flow Creator can then be used to verify the data exchange between Industrial Edge and Apache Kafka.
 
-You can also add graphics from the docs/graphics folder.
-
-![deploy VFC](docs/graphics/example_graphic.png)
+![Overview](docs/graphics/overview.png)
 
 ## Requirements
 
+### Used Components
+
+- OS: Windows or Linux
+- Docker minimum V18.09
+- Docker Compose V2.0 – V2.4
+- Industrial Edge App Publisher (IEAP) V1.2.9
+- Industrial Edge Management (IEM) V1.2.14
+  - S7 Connector V1.2.26
+  - S7 Connector Configurator 1.2.32
+  - IE Databus V1.2.16
+  - IE Databus Configurator V1.2.29
+  - IE App Configuration Service V1.0.5
+- Industrial Edge Device (IED) V1.2.0-56
+- TIA Portal V16 
+- PLC: CPU 1512 FW 2.8.3
+
+### TIA Project
+
+The used TIA Portal project can be found in the [miscellenous repository](https://github.com/industrial-edge/miscellaneous under the following name and is also used for several further application examples:
+
+- [tia-tank-application.7z](https://github.com/industrial-edge/miscellaneous/blob/main/tank%20application/tia-tank-application.7z)
+
 ### Prerequisites
-
-Add information what are the prerequisites for this app to work
-
-### Used components
-
-Add the used components here (e.g.)
-
-- Industrial Edge App Publisher V1.0.8
-- Docker Engine 18.09.6
-- Docker Compose V2.4
-- S7 Connector V 1.0.22
-- S7 Connector Configurator V 1.0.9
-- Industrial Edge Device V 1.0.0-34
-- TIA Portal V16
-- PLC: CPU 1511 FW 2.8.3
-
+Before using this application make sure you have a running Apache Kafka Broker. To setup up a test environment either follow the [Apache Kafka Quickstart guide](https://kafka.apache.org/quickstart) or use the provided [docker-compose.yml](./test/kafka-broker/docker-compose.yml) as described [here](./docs/installation.md#apache-kafka-broker-test-environment)
 
 ## Installation
 
 You can find the further information about the following steps in the [docs](./docs)
-To keep the readme.md file as short as possible please add more detailed information in the docs folder.
 
-- [Build application](docs/Installation.md#build-application)
-
-## Usage
-
-Add a description how to use your application.
+- [Build application](docs/installation.md#build-application)
+- [Upload application to Industrial Edge Management](docs/installation.md#upload-application-to-industrial-edge-management)
+- [Configure and install application to Industrial Edge Device](docs/installation.md#install-application-on-industrial-edge-device)
 
 ## Documentation
 
