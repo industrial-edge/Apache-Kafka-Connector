@@ -220,5 +220,7 @@ docker-compose up
 
 ### Test
 
-Install IE Flow Creator on Industrial Edge Device. 
+Install IE Flow Creator on Industrial Edge Device.
 Use flow provided [here](../test/ie-flow-creator/kafka.json). Insert Security Settings in MQTT-Node before using the Flow.
+
+![Test](graphics/test.png)

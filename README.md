@@ -11,6 +11,8 @@ Connect Industrial Edge Device to Apache Kafka
     - [TIA Project](#tia-project)
     - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Usage](#usage)
+  - [Implementation](#implementation)
   - [Documentation](#documentation)
   - [Contribution](#contribution)
   - [Licence and Legal Information](#licence-and-legal-information)
@@ -19,11 +21,11 @@ Connect Industrial Edge Device to Apache Kafka
 
 ### Overview
 
-The Apache Kafka Connector connects to the IE Databus and Apache Kafka. The Connector can subcribes to MQTT Topics on IE Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages on a Kafka Topic and publishes messages to MQTT Topics on IE Databus. 
+The Apache Kafka Connector connects to the IE Databus and Apache Kafka. The Connector can subcribes to MQTT Topics on IE Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages from a Kafka Topic and publishes messages to MQTT Topics on IE Databus.
 
 ### General task
 
-This example shows how to connect your Industrial Edge Device to Apache Kafka. Therefore a SIMATIC PLC is used as datasource. The S7-Connector reads the data from the PLC and publish them on IE Databus. The Apache Kafka Connector consists of two services, the "kafka-producer" and "kafka-consumer". The "kafka-producer" subscribes to the IE Databus to get the data from S7-Connector and produces messages in a topic on the Apache Kafka Broker. The "kafka-consumer" subscribes to the same topic on the Apache Kafka Broker and publishes the data an other topic on IE Databus. The IE Flow Creator can then be used to verify the data exchange between Industrial Edge and Apache Kafka.
+This example shows how to connect your Industrial Edge Device to Apache Kafka. Therefore a SIMATIC PLC is used as datasource. The S7-Connector reads the data from the PLC and publish them on IE Databus. The Apache Kafka Connector consists of two services, the "kafka-producer" and "kafka-consumer". The "kafka-producer" subscribes to the IE Databus, gets data from S7-Connector and produces messages in an Apache Kafka Broker's topic. The "kafka-consumer" subscribes to the same topic on the Apache Kafka Broker and publishes the data an other topic on IE Databus. The IE Flow Creator can be used to verify the data exchange between Industrial Edge and Apache Kafka.
 
 ![Overview](docs/graphics/overview.png)
 
@@ -47,7 +49,7 @@ This example shows how to connect your Industrial Edge Device to Apache Kafka. T
 
 ### TIA Project
 
-The used TIA Portal project can be found in the [miscellenous repository](https://github.com/industrial-edge/miscellaneous under the following name and is also used for several further application examples:
+The used TIA Portal project can be found in the [miscellenous repository](https://github.com/industrial-edge/miscellaneous) under the following name and is also used for several further application examples:
 
 - [tia-tank-application.7z](https://github.com/industrial-edge/miscellaneous/blob/main/tank%20application/tia-tank-application.7z)
 
@@ -61,6 +63,24 @@ You can find the further information about the following steps in the [docs](./d
 - [Build application](docs/installation.md#build-application)
 - [Upload application to Industrial Edge Management](docs/installation.md#upload-application-to-industrial-edge-management)
 - [Configure and install application to Industrial Edge Device](docs/installation.md#install-application-on-industrial-edge-device)
+
+## Usage
+
+Connect your Industrial Edge Device to a PLC as datasource over the network.
+
+Provide a Apache Kafka Broker (see [Prerequisites](#prerequisites)) that is accessible for the Industrial Edge Device over the network
+
+Use e.g. IE Flow Creator to verify data exchange to and from Apache Kafka Broker.
+
+![Test](./docs/graphics/test.png)
+
+## Implementation
+
+How to implement a Apache Kafka Producer and Consumer as well as further details about the source code can be found in the [implementation section](./docs/implementation.md).
+
+- [App Configuration](./docs/implementation.md#app-configuration)
+- [Connect to IE Databus](./docs/implementation.md#connect-to-ie-databus)
+- [Connect to Apache Kafka](./docs/implementation.md#connect-to-apache-kafka)
 
 ## Documentation
 

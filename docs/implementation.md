@@ -1,6 +1,24 @@
 # Implementation
 
-## App Configuration
+## App Confi- [Implementation](#implementation)
+  - [App Configuration](#app-configuration)
+    - [Bind-Mount Volume for configuration file](#bind-mount-volume-for-configuration-file)
+    - [Default app configuration](#default-app-configuration)
+    - [Read configuration file](#read-configuration-file)
+  - [Connect to IE Databus](#connect-to-ie-databus)
+    - [MQTT-Client options](#mqtt-client-options)
+    - [Connect MQTT-Client to IE Databus](#connect-mqtt-client-to-ie-databus)
+    - [Subscribe to Topics on IE Databus](#subscribe-to-topics-on-ie-databus)
+    - [Publish to Topic on IE Databus](#publish-to-topic-on-ie-databus)
+    - [On Message](#on-message)
+  - [Connect to Apache Kafka](#connect-to-apache-kafka)
+    - [Admin Client](#admin-client)
+    - [Create Topic](#create-topic)
+    - [Producer](#producer)
+    - [Produce Message](#produce-message)
+    - [Consumer](#consumer)
+    - [Subscribe to Topics](#subscribe-to-topics)
+    - [Poll loop](#poll-loop)guration
 
 ### Bind-Mount Volume for configuration file
 
@@ -151,5 +169,3 @@ while True:
 
 consumer.close()
 ```
-
-
