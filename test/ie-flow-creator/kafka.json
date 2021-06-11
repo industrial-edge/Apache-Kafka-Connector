@@ -1,0 +1,116 @@
+[
+    {
+        "id": "f433264a.789f28",
+        "type": "tab",
+        "label": "Apache Kafka Test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2e0aa0bc.bf589",
+        "type": "mqtt in",
+        "z": "f433264a.789f28",
+        "name": "",
+        "topic": "ie/d/j/simatic/v1/s7c1/dp/r/#",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "6c97d215.e577fc",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "6013b811.2a71b8"
+            ]
+        ]
+    },
+    {
+        "id": "180e4aba.233e85",
+        "type": "mqtt in",
+        "z": "f433264a.789f28",
+        "name": "",
+        "topic": "ie/d/kafka",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "6c97d215.e577fc",
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "bff04816.81f878"
+            ]
+        ]
+    },
+    {
+        "id": "6013b811.2a71b8",
+        "type": "debug",
+        "z": "f433264a.789f28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2728b2bf.43cf4e",
+        "type": "comment",
+        "z": "f433264a.789f28",
+        "name": "S7-Connector Data",
+        "info": "",
+        "x": 180,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f1468271.a4246",
+        "type": "comment",
+        "z": "f433264a.789f28",
+        "name": "Apache Kafka Data",
+        "info": "",
+        "x": 170,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bff04816.81f878",
+        "type": "debug",
+        "z": "f433264a.789f28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6c97d215.e577fc",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "ie-databus",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]

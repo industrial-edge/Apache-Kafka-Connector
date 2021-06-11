@@ -1,0 +1,28 @@
+version: '2.4'
+#### Services ####
+services:
+  kafka-producer:
+    build: ./src/producer
+    image: kafka-producer:0.1.0
+    networks:
+      - proxy-redirect
+    volumes:
+      - './cfg-data/:/cfg-data/'
+    mem_limit: 100mb
+    restart: always
+
+  kafka-consumer:
+    build: ./src/consumer
+    image: kafka-consumer:0.1.0
+    networks:
+      - proxy-redirect
+    volumes:
+      - './cfg-data/:/cfg-data/'
+    mem_limit: 100mb
+    restart: always
+
+#### Network ####
+networks:
+  proxy-redirect:
+    external: true
+    name: proxy-redirect 

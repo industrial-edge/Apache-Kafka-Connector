@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "required": [
+    "MQTT",
+    "KAFKA",
+    "CONSUMER_TOPICS",
+    "PRODUCER_TOPICS"
+  ],
+  "properties": {
+    "MQTT": {
+      "type": "object",
+      "default": {
+        "HOST": "ie-databus",
+        "PORT": "1883"
+      },
+      "required": [
+        "USERNAME",
+        "PASSWORD"
+      ],
+      "properties": {
+        "HOST": {
+          "type": "string"
+        },
+        "PORT": {
+          "type": "string"
+        },
+        "USERNAME": {
+          "type": "string",
+          "minLength": 4
+        },
+        "PASSWORD": {
+          "type": "string",
+          "minLength": 3
+        }
+      }
+    },
+    "KAFKA": {
+      "type": "object",
+      "default": {
+        "PORT": "9092"
+      },
+      "properties": {
+        "HOST": {
+          "type": "string"
+        },
+        "PORT": {
+          "type": "string"
+        }
+      }
+    },
+    "CONSUMER_TOPICS": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "MQTT",
+          "KAFKA"
+        ],
+        "properties": {
+          "MQTT": {
+            "type": "string"
+          },
+          "KAFKA": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "PRODUCER_TOPICS": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "MQTT",
+          "KAFKA",
+          "KEY"
+        ],
+        "properties": {
+          "MQTT": {
+            "type": "string"
+          },
+          "KAFKA": {
+            "type": "string"
+          },
+          "KEY": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
