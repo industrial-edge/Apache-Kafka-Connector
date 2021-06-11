@@ -27,8 +27,6 @@
     - [Run Apache Kafka Broker](#run-apache-kafka-broker)
     - [Test](#test)
 
-
-
 ## Build Application
 
 ### Download Repository
@@ -40,8 +38,7 @@ Open terminal in the project root path where docker-compose.yml is located and e
 ```bash
 docker-compose build
 ```
-This command builds the docker images of the services which are specified in the docker-compose.yml file.
- 
+This command builds the docker images of the services which are specified in the docker-compose.yml file. **For a deeper implementation understanding, click** [here](./implementation.md)
 
 ## Upload Application to Industrial Edge Management
 

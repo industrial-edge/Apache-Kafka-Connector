@@ -1,6 +1,6 @@
 # Implementation
 
-## App Confi- [Implementation](#implementation)
+- [Implementation](#implementation)
   - [App Configuration](#app-configuration)
     - [Bind-Mount Volume for configuration file](#bind-mount-volume-for-configuration-file)
     - [Default app configuration](#default-app-configuration)
@@ -18,7 +18,9 @@
     - [Produce Message](#produce-message)
     - [Consumer](#consumer)
     - [Subscribe to Topics](#subscribe-to-topics)
-    - [Poll loop](#poll-loop)guration
+    - [Poll loop](#poll-loop)
+
+## App Configuration
 
 ### Bind-Mount Volume for configuration file
 
