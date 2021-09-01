@@ -49,9 +49,9 @@ This example shows how to connect your Industrial Edge Device to Apache Kafka. T
 
 ### TIA Project
 
-The used TIA Portal project can be found in the [miscellenous repository](https://github.com/industrial-edge/miscellaneous) under the following name and is also used for several further application examples:
+The used TIA Portal project can be found in the [miscellaneous repository](https://github.com/industrial-edge/miscellaneous) in the tank application folder and is also used for several further application examples:
 
-- [tia-tank-application.7z](https://github.com/industrial-edge/miscellaneous/blob/main/tank%20application/tia-tank-application.7z)
+- [Tia Tank Application](https://github.com/industrial-edge/miscellaneous/tree/main/tank%20application)
 
 ### Prerequisites
 Before using this application make sure you have a running Apache Kafka Broker. To setup up a test environment either follow the [Apache Kafka Quickstart guide](https://kafka.apache.org/quickstart) or use the provided [docker-compose.yml](./test/kafka-broker/docker-compose.yml) as described [here](./docs/installation.md#apache-kafka-broker-test-environment)
