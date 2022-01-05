@@ -125,7 +125,7 @@ The Apache Kafka Connector can be configured with a form. The form is based on J
 - USER, PASSWORD: The user and password are configured in the IE Databus and used in the SIMATIC S7 Connector for accessing (publish, subscribe) to topics on the IE Databus
 
 #### KAFKA
-- HOST: This is the DNS-Name or IP-Adress of the Kafka-Broker 
+- HOST: This is the DNS-Name or IP-Address of the Kafka-Broker 
 - PORT: This is the port of the Kafka-Broker
 
 #### CONSUMER_TOPICS

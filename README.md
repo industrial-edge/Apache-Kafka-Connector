@@ -6,6 +6,7 @@ Connect Industrial Edge Device to Apache Kafka
   - [Description](#description)
     - [Overview](#overview)
     - [General task](#general-task)
+    - [Reference Architecture](#reference-architecture)
   - [Requirements](#requirements)
     - [Used Components](#used-components)
     - [TIA Project](#tia-project)
@@ -21,13 +22,15 @@ Connect Industrial Edge Device to Apache Kafka
 
 ### Overview
 
-The Apache Kafka Connector connects to the IE Databus and Apache Kafka. The Connector can subcribes to MQTT Topics on IE Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages from a Kafka Topic and publishes messages to MQTT Topics on IE Databus.
+The Apache Kafka Connector connects to the IE Databus and Apache Kafka. The Connector can subscribes to MQTT Topics on IE Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages from a Kafka Topic and publishes messages to MQTT Topics on IE Databus.
 
 ### General task
 
 This example shows how to connect your Industrial Edge Device to Apache Kafka. Therefore a SIMATIC PLC is used as datasource. The S7-Connector reads the data from the PLC and publish them on IE Databus. The Apache Kafka Connector consists of two services, the "kafka-producer" and "kafka-consumer". The "kafka-producer" subscribes to the IE Databus, gets data from S7-Connector and produces messages in an Apache Kafka Broker's topic. The "kafka-consumer" subscribes to the same topic on the Apache Kafka Broker and publishes the data an other topic on IE Databus. The IE Flow Creator can be used to verify the data exchange between Industrial Edge and Apache Kafka.
 
-![Overview](docs/graphics/overview.png)
+### Reference Architecture
+
+![Reference Architecture](docs/graphics/reference-architecture-kafka-connector.png)
 
 ## Requirements
 
