@@ -30,7 +30,7 @@ This example shows how to connect your Industrial Edge Device to Apache Kafka. T
 
 ### Reference Architecture
 
-![Reference Architecture](docs/graphics/reference-architecture-kafka-connector.png)
+![Reference Architecture](docs/graphics/reference-architecture_kafka-connector.png)
 
 ## Requirements
 
