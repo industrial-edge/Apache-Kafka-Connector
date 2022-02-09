@@ -36,10 +36,10 @@ This example shows how to connect your Industrial Edge Device to Apache Kafka. T
 - OS: Windows or Linux
 - Docker minimum V18.09
 - Docker Compose V2.0 – V2.4
-- Industrial Edge App Publisher (IEAP) V1.2.9
-- Industrial Edge Management (IEM) V1.2.14
+- Industrial Edge App Publisher (IEAP) V1.2.8
+- Industrial Edge Management (IEM) V1.2.16
   - S7 Connector V1.2.26
-  - S7 Connector Configurator 1.2.32
+  - S7 Connector Configurator 1.2.38
   - IE Databus V1.2.16
   - IE Databus Configurator V1.2.29
   - IE App Configuration Service V1.0.5
