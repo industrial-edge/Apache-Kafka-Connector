@@ -25,6 +25,7 @@ client.on_connect = on_connect
 
 # Connect MQTT-Client to MQTT Broker (IE Databus)
 client.connect(config.MQTT['HOST'], int(config.MQTT['PORT']), 60)
+client.loop_start()
 
 def publish (topic, msg):
     print('publish message: ' + msg + ' topic: ' + topic)
