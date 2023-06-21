@@ -3,16 +3,16 @@
 - [Installation](#installation)
   - [Build Application](#build-application)
     - [Download Repository](#download-repository)
-    - [Build docker images](#build-docker-images)
+    - [Build docker image](#build-docker-image)
   - [Upload Application to Industrial Edge Management](#upload-application-to-industrial-edge-management)
     - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
     - [Create new Application in Industrial Edge Management](#create-new-application-in-industrial-edge-management)
-    - [Configure IE Databus and SIMATIC S7 Connector](#configure-ie-databus-and-simatic-s7-connector)
-    - [Add Edge App configuration & upload configuration file to Industrial Edge Management](#add-edge-app-configuration--upload-configuration-file-to-industrial-edge-management)
+    - [Configure Databus and OPC UA Connector](#configure-databus-and-opc-ua-connector)
+    - [Add Edge App configuration \& upload configuration file to Industrial Edge Management](#add-edge-app-configuration--upload-configuration-file-to-industrial-edge-management)
       - [MQTT](#mqtt)
       - [KAFKA](#kafka)
-      - [CONSUMER_TOPICS](#consumer_topics)
-      - [CONSUMER_TOPICS](#consumer_topics-1)
+      - [CONSUMER\_TOPICS](#consumer_topics)
+      - [CONSUMER\_TOPICS](#consumer_topics-1)
   - [Install Application on Industrial Edge Device](#install-application-on-industrial-edge-device)
     - [Edge App configuration](#edge-app-configuration)
       - [IE Databus](#ie-databus)
@@ -30,15 +30,28 @@
 ## Build Application
 
 ### Download Repository
-Download or clone the repository to your workstation.
 
-### Build docker images
+Download or clone the repository source code to your workstation.  
+![Github Clone Section](graphics/clonerepo.png)
 
-Open terminal in the project root path where docker-compose.yml is located and execute: 
+
+* Trough terminal:
 ```bash
-docker-compose build
+git clone https://github.com/industrial-edge/Apache-Kafka-Connector.git
 ```
-This command builds the docker images of the services which are specified in the docker-compose.yml file. **For a deeper implementation understanding, click** [here](./implementation.md)
+
+* Trough VSCode:  
+<kbd>CTRL</kbd>+<kbd>&uarr; SHIFT</kbd>+<kbd>P</kbd> or <kbd>F1</kbd> to open VSCode's command pallette and type `git clone`:
+
+![VS Code Git Clone command](graphics/git.png)
+
+### Build docker image
+
+- Navigate into `src/consumer` and `src/producer` and find the file named `Dockerfile.example`. The `Dockerfile.example` is an example Dockerfile that can be used to build the docker image(s) of the service(s) that runs in this application example. If you choose to use these, rename them to `Dockerfile` before proceeding
+- Open a console in the root folder (where the `docker-compose` file is)
+- Use the `docker compose build` (replaces the older `docker-compose build`) command to build the docker image of the service which is specified in the docker-compose.yml file.
+- These Docker images can now be used to build your app with the Industrial Edge App Publisher
+- `docker images` can be used to check for the images
 
 ## Upload Application to Industrial Edge Management
 
@@ -49,7 +62,7 @@ For more detailed information please see the section for [uploading apps to the 
 ### Connect your Industrial Edge App Publisher
 
 - Connect your Industrial Edge App Publisher to your Docker engine
-- Connect your Industrial Edge App Publisher to your Industrial Edge Managment
+- Connect your Industrial Edge App Publisher to your Industrial Edge Management
 
 ### Create new Application in Industrial Edge Management
 
@@ -68,8 +81,8 @@ For more detailed information please see the section for [uploading apps to the 
 
 ---
 
-### Configure IE Databus and SIMATIC S7 Connector  
-1. Configure a user with password in the IE Databus for the SIMATIC S7 Connector and the Apache Kafka Connector Application for publishing and subscribing to topics on the IE Databus. 
+### Configure Databus and OPC UA Connector  
+1. Configure a user with password in the Databus for the OPC UA Connector and the Apache Kafka Connector Application for publishing and subscribing to topics on the Databus. 
    ```txt
    User name: edge 
    Password: edge 
@@ -81,7 +94,7 @@ For more detailed information please see the section for [uploading apps to the 
 1. Add the PLC as a data source with data source type e.g. OPC-UA.
 2. Add variables to collect data.
 
-![s7connector](graphics/simatic-s7-connector.png)
+![s7connector](graphics/opc_ua_connector.png)
 
 1. Enter Databus credentials <br>
 
@@ -111,31 +124,31 @@ The Apache Kafka Connector can be configured with a form. The form is based on J
   ],
   "PRODUCER_TOPICS": [
     {
-      "MQTT": "ie/d/j/simatic/v1/s7c1/dp/r/#",
+      "MQTT": "ie/d/j/simatic/v1/opcuac1/dp/r/#",
       "KAFKA": "EdgeDevice",
-      "KEY": "S7-Connector"
+      "KEY": "OPC-UA-Connector"
     }
   ]
 }
 ```
 
 #### MQTT
-- HOST: This is the service name of the IE Databus
-- PORT: This is the port of the IE Databus
-- USER, PASSWORD: The user and password are configured in the IE Databus and used in the SIMATIC S7 Connector for accessing (publish, subscribe) to topics on the IE Databus
+- HOST: This is the service name of the Databus
+- PORT: This is the port of the Databus
+- USER, PASSWORD: The user and password are configured in the Databus and used in the OPC UA Connector for accessing (publish, subscribe) to topics on the IE Databus
 
 #### KAFKA
 - HOST: This is the DNS-Name or IP-Adress of the Kafka-Broker 
 - PORT: This is the port of the Kafka-Broker
 
 #### CONSUMER_TOPICS
-This is a Topic Map list, mapping Apache Kafka topics to IE Databus topics
-- MQTT Topic: Topic on IE Databus
+This is a Topic Map list, mapping Apache Kafka topics to Databus topics
+- MQTT Topic: Topic on Databus
 - Kafka Topic: Topic on Apache Kafka
 
 #### CONSUMER_TOPICS
-This is a Topic Map list, mapping IE Databus topics to Apache Kafka topics
-- MQTT Topic: Topic on IE Databus
+This is a Topic Map list, mapping Databus topics to Apache Kafka topics
+- MQTT Topic: Topic on Databus
 - Kafka Topic: Topic on Apache Kafka
 - Kafka Key: Key of Kafka-Message (message on Kafka consists of a key value pair)
 
