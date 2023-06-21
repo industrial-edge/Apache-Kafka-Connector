@@ -15,17 +15,18 @@ Connect Industrial Edge Device to Apache Kafka
   - [Implementation](#implementation)
   - [Documentation](#documentation)
   - [Contribution](#contribution)
-  - [Licence and Legal Information](#licence-and-legal-information)
+  - [License and Legal Information](#license-and-legal-information)
+  - [Disclaimer](#disclaimer)
 
 ## Description
 
 ### Overview
 
-The Apache Kafka Connector connects to the IE Databus and Apache Kafka. The Connector can subcribes to MQTT Topics on IE Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages from a Kafka Topic and publishes messages to MQTT Topics on IE Databus.
+The Apache Kafka Connector connects to the Databus and Apache Kafka. The Connector can subcribes to MQTT Topics on Databus and produces messages (events, records) on a Kafka Topic. Also the Connector can consume messages from a Kafka Topic and publishes messages to MQTT Topics on Databus.
 
 ### General task
 
-This example shows how to connect your Industrial Edge Device to Apache Kafka. Therefore a SIMATIC PLC is used as datasource. The S7-Connector reads the data from the PLC and publish them on IE Databus. The Apache Kafka Connector consists of two services, the "kafka-producer" and "kafka-consumer". The "kafka-producer" subscribes to the IE Databus, gets data from S7-Connector and produces messages in an Apache Kafka Broker's topic. The "kafka-consumer" subscribes to the same topic on the Apache Kafka Broker and publishes the data an other topic on IE Databus. The IE Flow Creator can be used to verify the data exchange between Industrial Edge and Apache Kafka.
+This example shows how to connect your Industrial Edge Device to Apache Kafka. Therefore a SIMATIC PLC is used as datasource. The OPC UA Connector reads the data from the PLC and publish them on Databus. The Apache Kafka Connector consists of two services, the "kafka-producer" and "kafka-consumer". The "kafka-producer" subscribes to the Databus, gets data from OPC UA Connector and produces messages in an Apache Kafka Broker's topic. The "kafka-consumer" subscribes to the same topic on the Apache Kafka Broker and publishes the data an other topic on Databus. The Flow Creator can be used to verify the data exchange between Industrial Edge and Apache Kafka.
 
 ![Overview](docs/graphics/overview.png)
 
@@ -37,13 +38,13 @@ This example shows how to connect your Industrial Edge Device to Apache Kafka. T
 - Docker minimum V18.09
 - Docker Compose V2.0 – V2.4
 - Industrial Edge App Publisher (IEAP) V1.2.8
-- Industrial Edge Management (IEM) V1.2.16
-  - S7 Connector V1.2.26
-  - S7 Connector Configurator 1.2.38
-  - IE Databus V1.2.16
-  - IE Databus Configurator V1.2.29
-  - IE App Configuration Service V1.0.5
-- Industrial Edge Device (IED) V1.2.0-56
+- Industrial Edge Management (IEM) V1.5.2-4 / V1.11.8
+  - OPC UA Connector V1.8.1
+  - Common Connector Configurator V1.8.1-4
+  - Databus V2.0.0-4
+  - Databus Configurator V2.0.0-5
+  - IE App Configuration Service V1.2.2
+- Industrial Edge Device (IED) V1.10.0-9
 - TIA Portal V16 
 - PLC: CPU 1512 FW 2.8.3
 
@@ -70,7 +71,7 @@ Connect your Industrial Edge Device to a PLC as datasource over the network.
 
 Provide a Apache Kafka Broker (see [Prerequisites](#prerequisites)) that is accessible for the Industrial Edge Device over the network
 
-Use e.g. IE Flow Creator to verify data exchange to and from Apache Kafka Broker.
+Use e.g. Flow Creator to verify data exchange to and from Apache Kafka Broker.
 
 ![Test](./docs/graphics/test.png)
 
@@ -83,15 +84,13 @@ How to implement a Apache Kafka Producer and Consumer as well as further details
 - [Connect to Apache Kafka](./docs/implementation.md#connect-to-apache-kafka)
 
 ## Documentation
-
-- Add links to additional documentation here
-  
-- Here is a link to the [docs](docs/) of this application example.
+ 
 - You can find further documentation and help in the following links
   - [Industrial Edge Hub](https://iehub.eu1.edge.siemens.cloud/#/documentation)
-  - [Industrial Edge Forum](https://www.siemens.com/industrial-edge-forum)
+  - [Industrial Edge Forum](https://forum.mendix.com/link/space/industrial-edge)
   - [Industrial Edge landing page](https://new.siemens.com/global/en/products/automation/topic-areas/industrial-edge/simatic-edge.html)
   - [Industrial Edge GitHub page](https://github.com/industrial-edge)
+  - [Industrial Edge documentation page](https://docs.eu1.edge.siemens.cloud/index.html)
   
 ## Contribution
 
@@ -100,6 +99,12 @@ Additionally everybody is free to propose any changes to this repository using P
 
 If you are interested in contributing via Pull Request, please check the [Contribution License Agreement](Siemens_CLA_1.1.pdf) and forward a signed copy to [industrialedge.industry@siemens.com](mailto:industrialedge.industry@siemens.com?subject=CLA%20Agreement%20Industrial-Edge).
 
-## Licence and Legal Information
+## License and Legal Information
 
-Please read the [Legal information](LICENSE.md).
+Please read the [Legal information](LICENSE.txt).
+
+## Disclaimer
+
+IMPORTANT - PLEASE READ CAREFULLY:
+
+This documentation describes how you can download and set up containers which consist of or contain third-party software. By following this documentation you agree that using such third-party software is done at your own discretion and risk. No advice or information, whether oral or written, obtained by you from us or from this documentation shall create any warranty for the third-party software. Additionally, by following these descriptions or using the contents of this documentation, you agree that you are responsible for complying with all third party licenses applicable to such third-party software. All product names, logos, and brands are property of their respective owners. All third-party company, product and service names used in this documentation are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.

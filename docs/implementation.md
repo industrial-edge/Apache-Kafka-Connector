@@ -5,11 +5,11 @@
     - [Bind-Mount Volume for configuration file](#bind-mount-volume-for-configuration-file)
     - [Default app configuration](#default-app-configuration)
     - [Read configuration file](#read-configuration-file)
-  - [Connect to IE Databus](#connect-to-ie-databus)
+  - [Connect to Databus](#connect-to-databus)
     - [MQTT-Client options](#mqtt-client-options)
-    - [Connect MQTT-Client to IE Databus](#connect-mqtt-client-to-ie-databus)
-    - [Subscribe to Topics on IE Databus](#subscribe-to-topics-on-ie-databus)
-    - [Publish to Topic on IE Databus](#publish-to-topic-on-ie-databus)
+    - [Connect MQTT-Client to Databus](#connect-mqtt-client-to-databus)
+    - [Subscribe to Topics on Databus](#subscribe-to-topics-on-databus)
+    - [Publish to Topic on Databus](#publish-to-topic-on-databus)
     - [On Message](#on-message)
   - [Connect to Apache Kafka](#connect-to-apache-kafka)
     - [Admin Client](#admin-client)
@@ -76,7 +76,7 @@ except:
 ```
 
 
-## Connect to IE Databus
+## Connect to Databus
 
 ### MQTT-Client options
 ```python
@@ -85,12 +85,12 @@ client.username_pw_set(config.MQTT['USERNAME'], config.MQTT['PASSWORD'])
 client.on_connect = on_connect
 ```
 
-### Connect MQTT-Client to IE Databus
+### Connect MQTT-Client to Databus
 ```python
 client.connect(config.MQTT['HOST'], int(config.MQTT['PORT']), 60)
 ```
 
-### Subscribe to Topics on IE Databus
+### Subscribe to Topics on Databus
 ```python
 def on_connect(client, userdata, flags, rc):
     print('Connected to MQTT-Broker with result code ' + str(rc))
@@ -99,7 +99,7 @@ def on_connect(client, userdata, flags, rc):
         client.subscribe(topic['MQTT'])
 ```
 
-### Publish to Topic on IE Databus
+### Publish to Topic on Databus
 ```python
 client.publish(topic, msg)
 ```
