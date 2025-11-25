@@ -8,7 +8,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Copy default configuration
-COPY ./config/config-default.json ./config
+COPY ./config/config-default.json ./config/
 
 # Bundle app source
 COPY . .
